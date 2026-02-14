@@ -1,0 +1,47 @@
+<!-- vote.html -->
+{% extends "poll/base.html" %}
+
+{% block title %}Vote{% endblock %}
+
+{% block main %}
+<div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>{{ poll.question }}</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <hr />
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group display-block">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="poll" value="option1">
+                            {{ poll.option_one }}
+                        </label> &nbsp;
+                        <label><br/>
+                            <input type="radio" name="poll" value="option2">
+                            {{ poll.option_two }}
+                        </label> &nbsp;
+                        <label><br/>
+                            <input type="radio" name="poll" value="option3">
+                            {{ poll.option_three }}
+                        </label> &nbsp;
+                        
+                    </div>
+                </div>
+
+                <hr />
+
+                <button type="submit" class="btn btn-info">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
